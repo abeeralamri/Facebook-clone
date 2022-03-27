@@ -1,1 +1,8 @@
 hello
+<% if user_signed_in? %>
+    <%= link_to "Show this profile", current_user.profile %>
+    <%= button_to t('Log out'), destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to t('Sign up'), new_user_registration_path %>
+    <%= link_to t('Log in'), new_user_session_path %>
+<% end %>
