@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     
       def show
         @user = User.find_by_id(params[:id])
+        @profile = User.find_by_id(params[:id]).profile
       end
       
       def destroy
