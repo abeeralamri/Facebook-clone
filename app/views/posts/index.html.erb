@@ -8,8 +8,6 @@
 
   <%if post.display? && post.user_id == current_user.id %>
     <%= post.text %>
-  <% @posts.each do |post| %>
-    <%= render post %>
     <p>
       <%= link_to "Show this post", post %>
     </p>
@@ -25,3 +23,4 @@
 </div>
 
 <%= link_to "New post", new_post_path %>
+
