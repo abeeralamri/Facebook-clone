@@ -51,19 +51,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_134701) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-<<<<<<< Updated upstream
     t.index ["email"], name: "index_first_names_on_email", unique: true
     t.index ["reset_password_token"], name: "index_first_names_on_reset_password_token", unique: true
-=======
     t.integer "user_id"
     t.boolean "display"
     t.index ["user_id"], name: "index_posts_on_user_id"
->>>>>>> Stashed changes
-=======
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
->>>>>>> a709b74bf9b6c020b68db7860e3e697ee6039a08
   end
 
   create_table "profiles", force: :cascade do |t|
