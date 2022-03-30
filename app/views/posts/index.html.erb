@@ -1,26 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
 
-<div id="posts">
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<hr>
+<% @posts.each do |post| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to post.text, post_path(post) %></h5>
+    </div>
+      <h6>Post feedbacks: </h6>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+  <p><%= post.dislikes.count %> <%= (post.dislikes.count) == 1 ? 'Dislike' : 'Dislikes'%></p>
+  <p><%= post.wows.count %> <%= (post.wows.count) == 1 ? 'Wow' : 'Wows'%></p>
+  <p><%= post.sads.count %> <%= (post.sads.count) == 1 ? 'Sad' : 'Sdas'%></p>
+  <p><%= post.loveys.count %> <%= (post.loveys.count) == 1 ? 'Love' : 'Loves'%></p>
+  <p><%= post.angrys.count %> <%= (post.angrys.count) == 1 ? 'Angry' : 'Angrys'%></p>
 
-  <% @posts.each do |post| %>   
 
-  <%if post.display? && post.user_id == current_user.id %>
-    <%= post.text %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
-  <%if post.display == false %>
-    <%= post.text %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <%end%>
-  <%end%>
 
+  </div>
 </div>
 
-<%= link_to "New post", new_post_path %>
 
+
+      <%#= link_to 'Edit', edit_post_path(post), class: 'card-link' %>
+</div>
+<% end %>

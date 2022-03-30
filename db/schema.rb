@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_30_113120) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_30_165307) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,9 +39,48 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_113120) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "friend_lists", force: :cascade do |t|
+  create_table "angries", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_angries_on_post_id"
+    t.index ["user_id"], name: "index_angries_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "post_id"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_dislikes_on_post_id"
+    t.index ["user_id"], name: "index_dislikes_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "loveys", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_loveys_on_post_id"
+    t.index ["user_id"], name: "index_loveys_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -62,6 +101,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_113120) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "sads", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_sads_on_post_id"
+    t.index ["user_id"], name: "index_sads_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -76,7 +124,28 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_113120) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wows", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_wows_on_post_id"
+    t.index ["user_id"], name: "index_wows_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "angries", "posts"
+  add_foreign_key "angries", "users"
+  add_foreign_key "dislikes", "posts"
+  add_foreign_key "dislikes", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "loveys", "posts"
+  add_foreign_key "loveys", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "sads", "posts"
+  add_foreign_key "sads", "users"
+  add_foreign_key "wows", "posts"
+  add_foreign_key "wows", "users"
 end
