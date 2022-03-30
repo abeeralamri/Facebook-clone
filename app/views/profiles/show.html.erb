@@ -1,9 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @profile %> 
-
-<% if current_user.id == @profile.user_id %>
-    
+<% if current_user.id == @profile.id %>
     <%= link_to "Edit this profile", edit_profile_path(@profile) %> 
     </div>
 <% end %>
