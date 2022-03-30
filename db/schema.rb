@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_03_30_165307) do
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -87,6 +88,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_165307) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    
+  create_table "friend", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friend_on_friend_id"
+    t.index ["user_id"], name: "index_friend_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "display"
     t.integer "user_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -135,6 +150,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_165307) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+
   add_foreign_key "angries", "posts"
   add_foreign_key "angries", "users"
   add_foreign_key "dislikes", "posts"
@@ -148,4 +164,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_30_165307) do
   add_foreign_key "sads", "users"
   add_foreign_key "wows", "posts"
   add_foreign_key "wows", "users"
+
+  add_foreign_key "friend", "users"
+  add_foreign_key "friend", "users", column: "friend_id"
+  add_foreign_key "posts", "users"
+
 end
