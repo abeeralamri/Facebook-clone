@@ -1,0 +1,2 @@
+class PrivacyRole < ApplicationRecord
+end

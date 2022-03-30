@@ -18,14 +18,41 @@
   <div>
     <%= form.label :bio, style: "display: block" %>
     <%= form.text_field :bio %>
+    <% privacy1 = PrivacyRole.all%>
+    <%= form.select :bio_privacy, options_for_select(privacy1.map{|u| [u.name, u.id]}, profile.bio_privacy), {:prompt => "privacy options for bio"} %>
+    <% access1 = Access.find_by(user_id: params[:user_id], attr_id: params[1) %>
+    <%if access.nil?%>
+      <%access1 = Access.new %>
+      <%access1.privacy_id = profile.bio_privacy%>
+      <%access1.user_id = profile.user_id%>
+      <%access1.attr_id = 1%>
+      <%access1.save!%>
+    <%else%>
+      <%access1.privacy_id = profile.bio_privacy%>
+      <%access1.save!%>
+    <%end%>
   </div>
 
   <div>
     <%= form.label :job, style: "display: block" %>
     <%= form.text_field :job %>
+    <% privacy2 = PrivacyRole.all%>
+    <%= form.select :job_privacy, options_for_select(privacy2.map{|u| [u.name, u.id]}, profile.job_privacy), {:prompt => "privacy options for bio"} %>
+    <% access2 = Access.find_by(user_id: params[:user_id], attr_id: params[2]) %>
+    <%if access.nil?%>
+      <%access2 = Access.new %>
+      <%access2.privacy_id = profile.job_privacy%>
+      <%access2.user_id = profile.user_id%>
+      <%access2.attr_id = 2%>
+      <%access2.save!%>
+    <%else%>
+      <%access2.privacy_id = profile.job_privacy%>
+      <%access2.save!%>
+    <%end%>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+

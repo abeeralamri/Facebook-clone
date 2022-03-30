@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_27_094343) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_29_144737) do
+  create_table "accesses", force: :cascade do |t|
+    t.integer "privacy_id"
+    t.integer "attr_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -52,12 +60,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_27_094343) do
     t.index ["reset_password_token"], name: "index_first_names_on_reset_password_token", unique: true
   end
 
+  create_table "privacies", force: :cascade do |t|
+    t.string "public"
+    t.string "private"
+    t.string "freinds_only"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "privacy_roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "bio"
     t.string "job"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
+    t.integer "freind"
+    t.integer "job_privacy"
+    t.integer "bio_privacy"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
