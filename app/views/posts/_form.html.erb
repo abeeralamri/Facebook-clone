@@ -15,11 +15,18 @@
     <%= form.label :text, style: "display: block" %>
     <%= form.text_area :text %>
   </div>
-
+  
+  <div>
+    <%= form.label "Public", style: "display: block" %>
+    <%= form.check_box :display, as: :boolean, checked_value: false %>
+  </div>
+  
   <div>
     <%= form.label "Private", style: "display: block" %>
     <%= form.check_box :display, as: :boolean, checked_value: true, unchecked_value: false %>
-    </div>
+  </div>
+
+ 
 
   <div>
     <%= form.submit %>
