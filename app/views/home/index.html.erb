@@ -1,8 +1,11 @@
-hello
+<h1 style="text-align:center">Welcome to facebook website </h1>
+
 <% if user_signed_in? %>
-    <%= link_to "Show this profile", current_user.profile %>
-    <%= button_to t('Log out'), destroy_user_session_path, method: :delete %>
+    <h5 style="text-align:center"> Go to your profile : <%= link_to "Show this profile", current_user.profile %></h5>
+    <h5 style="text-align:center">See your post go there:  <%= link_to "Posts", posts_url %></h5><br>
+   <h5 style="text-align:center"><%= button_to t(' Log out '), destroy_user_session_path, method: :delete ,class:"btn btn-primary" %><br>
+   <br>
 <% else %>
-    <%= link_to t('Sign up'), new_user_registration_path %>
-    <%= link_to t('Log in'), new_user_session_path %>
+  <h5 style="text-align:center">  <%= link_to t('Sign up'), new_user_registration_path ,class:"btn btn-primary" %><h5>
+  <h5 style="text-align:center"><%= link_to t('Log in'), new_user_session_path  ,class:"btn btn-primary"%><h5>
 <% end %>

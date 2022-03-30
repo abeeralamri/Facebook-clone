@@ -1,0 +1,32 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h4 class="text-danger"><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
+
+      <ul class="list-group">
+        <% post.errors.full_messages.each do |message| %>
+          <li class="list-group-item list-group-item-danger"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :post %>
+    <%= form.text_field :text, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label "Public", style: "display: block" %>
+    <%= form.check_box :display, as: :boolean, checked_value: false %>
+  </div>
+  
+  <div>
+    <%= form.label "Private", style: "display: block" %>
+    <%= form.check_box :display, as: :boolean, checked_value: true, unchecked_value: false %>
+  </div>
+
+ 
+
+  <%= form.submit "Save Post", class: 'btn btn-primary' %>
+<% end %>
