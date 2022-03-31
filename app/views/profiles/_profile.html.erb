@@ -1,11 +1,17 @@
 <div id="<%= dom_id profile %>">
-  <p>
-    
+  
+  
   <% if profile.avatar.attached? %>
     <%= image_tag(profile.avatar,size: "80x80")%> 
   <%end%>
   </p>
   
+  <p>
+    <strong>Name:</strong>
+    <%= profile.user.first_name %>
+    <%= profile.user.last_name %>
+  </p>
+  <p>
   <p>
     <strong>Bio:</strong>
     <%= profile.bio %>
