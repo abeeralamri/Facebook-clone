@@ -1,14 +1,13 @@
 <p style="color: green"><%= notice %></p>
-<h3>comment : </h3>
+<h3>comments : </h3>
 <div class="card">
   <div class="card-body">
  <%= @comment.body %>
  </div>
  </div>
 <br>
-<br>
 <div>
-  <%= link_to "Edit comment", edit_comment_path(@comment) ,class:"btn btn-primary" %>  
+  <%= link_to "Edit Comment", edit_comment_path(@comment) ,class:"btn btn-primary" %>
   </div>
 <br>
   <%= link_to "Back to posts", posts_path ,class:"btn btn-primary" %>
