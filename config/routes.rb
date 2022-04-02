@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :profiles
   devise_for :users
-
+  resources :friends
   resources :posts do
     resources :likes
     resources :dislikes
@@ -20,4 +20,9 @@ Rails.application.routes.draw do
   
   #root to: 'posts#index'
   root to: "home#index"
-end
+  get "friend_list", to: "friends#index"
+
+  post '/friendship/create/:id', to: 'friends#create'
+  delete '/friend_list/:id', to: 'friendships#destroy'
+  
+ end
