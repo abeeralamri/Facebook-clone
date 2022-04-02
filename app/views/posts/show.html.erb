@@ -1,10 +1,104 @@
-<p style="color: green"><%= notice %></p>
+<div class="card my-5">
+  <div class="card-body">
+    <p id="notice"><%= notice %></p>
 
-<%= render @post %>
+    <h5 class="text-center"><%= @post.text%></h5>
+    <hr >
+    <div class="my-4">
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
+    </div>
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
+
+  
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+
+<% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+<%= button_to image_tag("like.png" , size: '30x30'), post_like_path(@post ,pre_like), method: :delete , class:"btn btn-primary"  %>
+<% else %>
+<%= button_to image_tag("like.png" , size: '30x30'), post_likes_path(@post), method: :post ,class:"btn btn-light"  %>
+<% end %>
+
+<%#===========================================================================================%>
+
+
+<% pre_dislike = @post.dislikes.find { |dislike| dislike.user_id == current_user.id} %>
+<% if pre_dislike %>
+<%= button_to image_tag("unlike.png" , size: '30x30'), post_dislike_path(@post ,pre_dislike), method: :delete , class:"btn btn-primary"  %>
+<% else %>
+<%= button_to image_tag("unlike.png" , size: '30x30'), post_dislikes_path(@post), method: :post ,class:"btn btn-light"  %>
+<% end %>
+
+
+<%#===========================================================================================%>
+
+<% pre_wow = @post.wows.find { |wow| wow.user_id == current_user.id} %>
+<% if pre_wow %>
+<%= button_to image_tag("wow.png" , size: '30x30'), post_wow_path(@post ,pre_wow), method: :delete , class:"btn btn-primary"  %>
+<% else %>
+<%= button_to image_tag("wow.png" , size: '30x30'), post_wows_path(@post), method: :post ,class:"btn btn-light"  %>
+<% end %>
+
+
+<%#===========================================================================================%>
+
+<% pre_sad = @post.sads.find { |sad| sad.user_id == current_user.id} %>
+<% if pre_sad %>
+<%= button_to image_tag("sad.png" , size: '30x30'), post_sad_path(@post ,pre_sad), method: :delete , class:"btn btn-primary"  %>
+<% else %>
+<%= button_to image_tag("sad.png" , size: '30x30'), post_sads_path(@post), method: :post ,class:"btn btn-light"  %>
+<% end %>
+<%#===========================================================================================%>
+
+<% pre_lovey = @post.loveys.find { |lovey| lovey.user_id == current_user.id} %>
+<% if pre_lovey %>
+<%= button_to image_tag("love.png" , size: '30x30'), post_lovey_path(@post ,pre_lovey), method: :delete , class:"btn btn-primary"  %>
+<% else %>
+<%= button_to image_tag("love.png" , size: '30x30'), post_loveys_path(@post), method: :post ,class:"btn btn-light"  %>
+<% end %>
+
+<%#===========================================================================================%>
+
+<% pre_angry = @post.angrys.find { |lovey| lovey.user_id == current_user.id} %>
+<% if pre_angry %>
+<%= button_to image_tag("angry.png" , size: '30x30'), post_angry_path(@post ,pre_angry), method: :delete , class:"btn btn-primary"  %>
+<% else %>
+<%= button_to image_tag("angry.png" , size: '30x30'), post_angrys_path(@post), method: :post ,class:"btn btn-light"  %>
+<% end %>
+
+
+
+  </div>
 </div>
+  </div>
+
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+<p><%= @post.dislikes.count %> <%= (@post.dislikes.count) == 1 ? 'Dislike' : 'Dislike'%></p>
+<p><%= @post.wows.count %> <%= (@post.wows.count) == 1 ? 'Wow' : 'Wows'%></p>
+<p><%= @post.sads.count %> <%= (@post.sads.count) == 1 ? 'Sad' : 'Sads'%></p>
+<p><%= @post.loveys.count %> <%= (@post.loveys.count) == 1 ? 'Love' : 'Loves'%></p>
+<p><%= @post.angrys.count %> <%= (@post.angrys.count) == 1 ? 'Angry' : 'Angrys'%></p>
+
+
+</div>
+</div>
+
+<div class="card my-1"> 
+  <div class="card-body">
+    <p class="font-weight-bold">Post Comments : </p>
+    <%= form_with(model: [@post, @post.comments.build]) do |f| %>
+      <div class="form-group">
+        <%= f.label 'New comment' %>
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <%= render @post.comments %>
+</div>
+<br>
+
+  <%= link_to 'Back To Timeline', posts_path, class: 'btn btn-light' %>

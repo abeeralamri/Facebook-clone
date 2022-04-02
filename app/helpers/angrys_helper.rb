@@ -1,0 +1,2 @@
+module AngrysHelper
+end
