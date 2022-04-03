@@ -6,7 +6,7 @@
           <br>
     
     <% if pending_for_accept_my_request(user) %>
-        <%= button_to 'Cancel request sent', friend_list_path(find_friend_id(user)), method: :delete %> 
+        <%= button_to 'Cancel request sent', friend_path(find_friend_id(user)), method: :delete %> 
     <% elsif pending_for_me_to_accept(user) %>
       <div>
         <%= button_to 'Accept request',edit_friend_path(find_friend_id(user)), method: :get %> 
@@ -16,7 +16,7 @@
       <%= link_to 'Go to Friend\'s Profile ', @profiles[user.id] %>  
       <%= button_to 'Remove Friend',friend_path(find_friend_id(user)), method: :delete %> 
     <% elsif %>
-      <%= button_to 'Add Friend', "friendship/create/#{user.id}", method: :post %>  
+      <%= button_to 'Add Friend', "friend/create/#{user.id}", method: :post %>  
     <% end %>
 
  
