@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
   # POST /profiles or /profiles.json
   def create
     @profile = Profile.new(profile_params)
-
+    @access = Access.find_by(user_id: params[:user_id], attr_id: params[:attr_id])
     respond_to do |format|
       if @profile.save
         format.html { redirect_to profile_url(@profile), notice: "Profile was successfully created." }
@@ -39,6 +39,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1 or /profiles/1.json
   def update
     @profile = current_user.profile
+    @access = Access.find_by(user_id: params[:user_id], attr_id: params[:attr_id])
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to profile_url(@profile), notice: "Profile was successfully updated." }
@@ -70,4 +71,6 @@ class ProfilesController < ApplicationController
     def profile_params
       params.require(:profile).permit(:bio, :job, :avatar, :bio_privacy, :job_privacy)
     end
+
+    
 end
