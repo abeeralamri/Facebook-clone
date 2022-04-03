@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :inverse_friends, class_name: 'Friend', foreign_key: 'friend_id'
   has_many :inverse_confirmed_friends, -> { where(friendships: { friendship_status: true }) }, through: :inverse_friends, source: :user
 
+  has_many :groups
+
   def init_profile
     self.build_profile.save(validate: false)
   end
