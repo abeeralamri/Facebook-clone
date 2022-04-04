@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :post, dependent: :destroy, foreign_key: 'user_id'
   has_many :friend_lists
+  has_many :comment, dependent: :destroy
   
   def init_profile
     self.build_profile.save(validate: false)
