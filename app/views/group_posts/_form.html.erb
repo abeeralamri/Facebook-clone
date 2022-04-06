@@ -1,0 +1,31 @@
+<%= form_with(model: group_post) do |form| %>
+  <% if group_post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group_post.errors.count, "error") %> prohibited this group_post from being saved:</h2>
+
+      <ul>
+        <% group_post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :group_id, :value => params[:group_id] %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+  
+<% end %>
