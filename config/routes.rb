@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   resources :group_comments
   resources :group_posts
   resources :groups
