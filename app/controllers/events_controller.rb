@@ -1,9 +1,17 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
+  include FriendsHelper
 
   # GET /events or /events.json
   def index
     @events = Event.all
+    users = User.all
+    @myfriends = []
+    users.each do |user|
+      if my_friends?(user)
+        @myfriends.push(user)
+      end
+    end
   end
 
   # GET /events/1 or /events/1.json
@@ -21,7 +29,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.new(event_params)
 
     respond_to do |format|
       if @event.save

@@ -4,11 +4,16 @@
 
 <div id="events">
   <% @events.each do |event| %>
+    <%if event.privacy? && !@myfriends.map{|u| u == current_user.id }.empty? %>
     <%= render event %>
     <p>
       <%= link_to "Show this event", event %>
     </p>
-  <% end %>
+  
+    <%elsif event.privacy == false%>
+      <%= render event %>
+    <% end %>
+  <%end%>
 </div>
 
 <%= link_to "New event", new_event_path %>

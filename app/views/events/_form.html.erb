@@ -37,13 +37,17 @@
   </div>
 
   <div>
-    <%= form.label :privacy, style: "display: block" %>
-    <%= form.check_box :privacy %>
+    <%= form.label "Public", style: "display: block" %>
+    <%= form.check_box :privacy, as: :boolean, checked_value: false %>
+  </div>
+  
+  <div>
+    <%= form.label "Friends", style: "display: block" %>
+    <%= form.check_box :privacy, as: :boolean, checked_value: true, unchecked_value: false %>
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
   <div>
