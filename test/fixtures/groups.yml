@@ -1,11 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  friend: one
-  creator: one
+# one:
+#   name: MyString
+#   friend: one
+#   creator: one
 
-two:
-  name: MyString
-  friend: two
-  creator: two
+# two:
+#   name: MyString
+#   friend: two
+#   creator: two

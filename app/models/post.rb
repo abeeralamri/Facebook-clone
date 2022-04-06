@@ -11,5 +11,7 @@ class Post < ApplicationRecord
     has_many :angrys, dependent: :destroy
     has_many :comments
 
+    #Validation
+    validates :text, presence: true
 
 end
