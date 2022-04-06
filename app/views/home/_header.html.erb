@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+
+  <div class="container-fluid">
+
+
+    <a class="navbar-brand" href="#">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/512px-2021_Facebook_icon.svg.png" width="80" height="80" alt="facebook icon">
+
+  
+
+    
+    <%= link_to t('home._header.home'), root_path, class:"navbar-brand" %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to t('home._header.notification'), root_path, class:"navbar-brand" %>
+          <%end%>
+        </li>
+          <% if user_signed_in? %>
+         <li class="nav-item">
+            <%= link_to t('home._header.Friend list'), friend_list_path, class:"navbar-brand" %>
+            <%end%>
+        </li>
+         <% if user_signed_in? %>
+        <li class="nav-item">
+            <%= link_to t('home._header.profile'), current_user.profile ,class:"navbar-brand" %>
+        <%end%>
+        </li>
+         <% if user_signed_in? %>
+        <li class="nav-item">
+        <%= link_to t('home._header.Posts'), posts_url ,class:"navbar-brand" %>
+        <%end%>
+        </li>
+
+        <li class="nav-item">
+        </li>
+
+        <li class="nav-item">
+        </li>
+       
+      </ul>
+     </div>
+
+   <ul class="navbar-nav ml-auto">
+ <% if user_signed_in? %>
+      <li class="nav-item">
+    <%= button_to t('Log out'), destroy_user_session_path, method: :delete ,class:"btn btn-primary"%>
+     </li>
+
+      <% else %>
+    <li class="nav-item">
+        <%= link_to t('Sign up'), new_user_registration_path ,class:"btn btn-primary" %>
+    </li>
+  
+    <li class="nav-item">
+    <%= link_to t('Log in'), new_user_session_path ,class:"btn btn-primary" %>
+        </li>
+
+      <% end %>
+    
+
+      </ul>
+    </div>
+  </div>
+</nav>

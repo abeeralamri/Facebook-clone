@@ -1,9 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @profile %> 
-<% if current_user.id == @profile.id %>
-    <%= link_to "Edit this profile", edit_profile_path(@profile) %> 
+
+<% if user_signed_in? && @profile.user_id == current_user.id%>
+    
+    <%= link_to "Edit this profile", edit_profile_path(@profile) ,class:"btn btn-primary" %> 
     </div>
 <% end %>
 
-<a href="/" id="yes">homepage</a>
+<a href="/" id="yes" class="btn btn-primary">Home page</a>
+
+        

@@ -13,12 +13,20 @@
   </p>
   <p>
   <p>
-    <strong>Bio:</strong>
-    <%= profile.bio %>
+    <% access1 = Access.find_by(user_id: profile.user_id, attr_id: 1) %>
+    <% freind1 = Friend.find_by(user_id: profile.user_id, friend_id: current_user.id)%>
+    <% if (access1.privacy_id == 1) || (access1.privacy_id == 3 && freind1 != nil) || (current_user.id == profile.user_id)%>
+      <strong>Bio:</strong>
+      <%= profile.bio %>
+    <%end%>
   </p>
 
     <p>
-    <strong>Job:</strong>
-    <%= profile.job %>
+    <% access2 = Access.find_by(user_id: profile.user_id, attr_id: 2) %>
+    <% freind2 = Friend.find_by(user_id: profile.user_id, friend_id: current_user.id)%>
+    <% if (access2.privacy_id == 1) || (access2.privacy_id == 3 && freind2 != nil) || (current_user.id == profile.user_id)%>
+      <strong>Job:</strong>
+      <%= profile.job %>
+    <%end%>
   </p>
 </div>
