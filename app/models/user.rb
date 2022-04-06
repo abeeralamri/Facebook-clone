@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   after_create :init_profile
 
-  has_many :post, dependent: :destroy, foreign_key: 'user_id'
+  has_many :posts, dependent: :destroy, foreign_key: 'user_id'
 
   def init_profile
     self.build_profile.save(validate: false)
