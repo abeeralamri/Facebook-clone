@@ -23,13 +23,18 @@
         </li>
           <% if user_signed_in? %>
          <li class="nav-item">
-            <%= link_to t('home._header.Friend list'), friend_list_path, class:"navbar-brand" %>
-            <%end%>
-        </li>
-        <li class="nav-item">
+            <%= link_to t('home._header.Friend list'), friend_list_path, class:"navbar-brand" %> 
+            <li class="nav-item">
             <%= link_to t('home._header.Groups'), groups_url, class:"navbar-brand" %>
     
+         </li>
+          <li class="nav-item">
+            <%= link_to t('home._header.Event'), events_url, class:"navbar-brand" %>
+    
+          </li>
+            <%end%>
         </li>
+      
          <% if user_signed_in? %>
         <li class="nav-item">
             <%= link_to t('home._header.profile'), current_user.profile ,class:"navbar-brand" %>
