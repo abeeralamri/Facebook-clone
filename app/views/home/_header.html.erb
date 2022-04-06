@@ -50,6 +50,7 @@
  <% if user_signed_in? %>
       <li class="nav-item">
     <%= button_to t('Log out'), destroy_user_session_path, method: :delete ,class:"btn btn-primary"%>
+       <%= render 'layouts/notifications' %>
      </li>
 
       <% else %>
