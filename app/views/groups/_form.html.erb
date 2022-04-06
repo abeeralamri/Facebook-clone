@@ -17,16 +17,12 @@
   </div>
 
   <div>
-    <%= form.label :friend_id, style: "display: block" %>
-    <%= form.text_field :friend_id %>
+    <%= form.label :user_id, style: "display: block" %>
+      <%= form.collection_select :member_id, @myfriends, :id, :first_name %>
   </div>
 
-  <div>
-    <%= form.label :creator_id, style: "display: block" %>
-    <%= form.text_field :creator_id %>
-  </div>
 
-  <div>
+
     <%= form.submit %>
   </div>
 <% end %>

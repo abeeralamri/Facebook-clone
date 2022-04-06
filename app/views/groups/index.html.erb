@@ -4,11 +4,16 @@
 
 <div id="groups">
   <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group %>
-    </p>
-  <% end %>
+   
+   <h5 class="card-title"><%= link_to group.name, group_path(group) %></h5>
+
+ 
+    </div>      
+
+  
+    
 </div>
+<%end%>
 
 <%= link_to "New group", new_group_path %>
+
