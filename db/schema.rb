@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_01_111814) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_06_020504) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -73,6 +73,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_01_111814) do
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_friends_on_friend_id"
     t.index ["user_id"], name: "index_friends_on_user_id"
+  end
+
+  create_table "group_posts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_posts_on_group_id"
+    t.index ["user_id"], name: "index_group_posts_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "member_id", null: false
+    t.boolean "join_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "name"
+    t.index ["member_id"], name: "index_groups_on_member_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -151,6 +172,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_01_111814) do
   add_foreign_key "dislikes", "users"
   add_foreign_key "friends", "users"
   add_foreign_key "friends", "users", column: "friend_id"
+  add_foreign_key "group_posts", "groups"
+  add_foreign_key "group_posts", "users"
+  add_foreign_key "groups", "users"
+  add_foreign_key "groups", "users", column: "member_id"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "loveys", "posts"

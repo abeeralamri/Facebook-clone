@@ -1,6 +1,5 @@
 <ul>
   <% @users.each do |user| %>
-
     <%if user.id != current_user.id%>
           <%=link_to user.first_name, @profiles[user.id] %>
           <br>

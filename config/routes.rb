@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  resources :group_comments
+  resources :group_posts
+  resources :groups
   resources :comments
   resources :posts
   resources :profiles
   devise_for :users
   resources :friends
+  resources :groups
   resources :posts do
     resources :likes
     resources :dislikes
@@ -24,5 +28,7 @@ Rails.application.routes.draw do
 
   post '/friendship/create/:id', to: 'friends#create'
   delete '/friend_list/:id', to: 'friendships#destroy'
+
+  post '/group_post/create', to: 'group_posts#create'
   
  end

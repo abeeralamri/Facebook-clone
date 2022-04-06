@@ -1,6 +1,5 @@
 module FriendsHelper 
 
-  # Users who have yet to confirme friend
   def pending_for_accept_my_request(user)
     friendship1 = @friends.map { |friendship| friendship.friend if !friendship.friendship_status }.compact
     friendship1.include?(user)
@@ -27,4 +26,10 @@ module FriendsHelper
     friendship_2 = @inverse_friends.map { |friendship| friendship.user if !friendship.friendship_status }.compact
     friendship_2
   end
+
+  def my_friends?(friend)
+    return true if current_user.friends.where(user_id: current_user.id, friend_id: friend, friendship_status: true).exists?
+    return true if current_user.inverse_friends.where(user_id: friend, friend_id: current_user, friendship_status: true).exists?
+  end
+  
 end
