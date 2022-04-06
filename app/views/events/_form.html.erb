@@ -1,0 +1,56 @@
+<%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :start_date, style: "display: block" %>
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date, style: "display: block" %>
+    <%= form.date_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.label :start_time, style: "display: block" %>
+    <%= form.time_field :start_time %>
+  </div>
+
+  <div>
+    <%= form.label :end_time, style: "display: block" %>
+    <%= form.time_field :end_time %>
+  </div>
+
+  <div>
+    <%= form.label "Public", style: "display: block" %>
+    <%= form.check_box :privacy, as: :boolean, checked_value: false %>
+  </div>
+  
+  <div>
+    <%= form.label "Friends", style: "display: block" %>
+    <%= form.check_box :privacy, as: :boolean, checked_value: true, unchecked_value: false %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
