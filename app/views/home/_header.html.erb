@@ -19,9 +19,6 @@
         <% if user_signed_in? %>
         <li class="nav-item">
 
-          <%= link_to t('home._header.notification'), root_path, class:"navbar-brand" %>
-
-
           <%end%>
         </li>
           <% if user_signed_in? %>
@@ -29,13 +26,12 @@
 
             <%= link_to t('Friend list'), friend_list_path, class:"navbar-brand" %>
 
-            <%= link_to t('home._header.Friend list'), friend_list_path, class:"navbar-brand" %> 
             <li class="nav-item">
-            <%= link_to t('home._header.Groups'), groups_url, class:"navbar-brand" %>
+            <%= link_to t('Groups'), groups_url, class:"navbar-brand" %>
     
          </li>
           <li class="nav-item">
-            <%= link_to t('home._header.Event'), events_url, class:"navbar-brand" %>
+            <%= link_to t('Events'), events_url, class:"navbar-brand" %>
     
           </li>
             <%end%>
@@ -66,8 +62,6 @@
       <li class="nav-item">
     <%= button_to t('Log out'), destroy_user_session_path, method: :delete ,class:"btn btn-primary"%>
         
-    Signed in as <%= current_user.email %>.
-
 
        <%= render 'layouts/notifications' %>
 
