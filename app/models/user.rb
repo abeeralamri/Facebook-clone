@@ -10,14 +10,25 @@ class User < ApplicationRecord
 
   has_many :post, dependent: :destroy, foreign_key: 'user_id'
 
+
+  has_many :posts, dependent: :destroy, foreign_key: 'user_id'
   
   has_many :friends
   has_many :confirmed_friends, -> { where(friends: { friendship_status: true }) }, through: :friends, source: :friend
   has_many :inverse_friends, class_name: 'Friend', foreign_key: 'friend_id'
+
   has_many :inverse_confirmed_friends, -> { where(friendships: { friendship_status: true }) }, through: :inverse_friends, source: :user
   has_many :notifications, as: :recipient
 
+
   has_many :friend_lists
+
+  has_many :inverse_confirmed_friends, -> { where(friends: { friendship_status: true }) }, through: :inverse_friends, source: :user
+
+  has_many :groups, dependent: :destroy
+  has_many :events
+
+
 
   def init_profile
     

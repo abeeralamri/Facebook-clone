@@ -3,22 +3,29 @@
   <%if user.id != current_user.id%>
     <%=link_to user.first_name, profile_path(user) %>
     <br>
+
+<ul>
+  <% @users.each do |user| %>
+    <%if user.id != current_user.id%>
+          <%=link_to user.first_name, @profiles[user.id] %>
+          <br>
+
     
     <% if pending_for_accept_my_request(user) %>
-        <%= button_to 'Cancel request sent', friend_path(find_friend_id(user)), method: :delete %> 
+        <%= button_to t('Cancel request sent'), friend_path(find_friend_id(user)), method: :delete %> 
     <% elsif pending_for_me_to_accept(user) %>
 
       <div>
-        <%= button_to 'Accept request',edit_friend_path(find_friend_id(user)), method: :get %> 
-        <%= button_to 'Cancel request',friend_path(find_friend_id(user)), method: :delete %> 
+        <%= button_to t('Accept request'),edit_friend_path(find_friend_id(user)), method: :get %> 
+        <%= button_to t('Cancel request'),friend_path(find_friend_id(user)), method: :delete %> 
       </div>
 
     <% elsif we_are_friends(user)  %>
-        <%= link_to 'Go to Friend\'s Profile ', profile_path(user) %>  
-        <%= button_to 'Remove Friend',friend_path(find_friend_id(user)), method: :delete %> 
+        <%= link_to t('Go to Friend Profile'), profile_path(user) %>  
+        <%= button_to t('Remove Friend'),friend_path(find_friend_id(user)), method: :delete %> 
 
     <% elsif %>
-        <%= button_to 'Add Friend', "friend/create/#{user.id}", method: :post %>  
+        <%= button_to t('Add Friend'), "friend/create/#{user.id}", method: :post %>  
     <% end %>
 
   <%end%>
