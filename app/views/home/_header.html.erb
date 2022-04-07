@@ -19,6 +19,7 @@
         <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to t('home._header.notification'), root_path, class:"navbar-brand" %>
+
           <%end%>
         </li>
           <% if user_signed_in? %>
@@ -54,19 +55,19 @@
  <% if user_signed_in? %>
       <li class="nav-item">
     <%= button_to t('Log out'), destroy_user_session_path, method: :delete ,class:"btn btn-primary"%>
+    Signed in as <%= current_user.email %>.
      </li>
-
       <% else %>
     <li class="nav-item">
         <%= link_to t('Sign up'), new_user_registration_path ,class:"btn btn-primary" %>
     </li>
-  
     <li class="nav-item">
     <%= link_to t('Log in'), new_user_session_path ,class:"btn btn-primary" %>
         </li>
 
       <% end %>
-    
+  
+
 
       </ul>
     </div>
