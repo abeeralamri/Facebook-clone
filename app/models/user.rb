@@ -8,6 +8,9 @@ class User < ApplicationRecord
   after_create :init_profile
 
 
+  has_many :post, dependent: :destroy, foreign_key: 'user_id'
+
+
   has_many :posts, dependent: :destroy, foreign_key: 'user_id'
   
   has_many :friends
@@ -17,13 +20,18 @@ class User < ApplicationRecord
   has_many :inverse_confirmed_friends, -> { where(friendships: { friendship_status: true }) }, through: :inverse_friends, source: :user
   has_many :notifications, as: :recipient
 
+
+  has_many :friend_lists
+
   has_many :inverse_confirmed_friends, -> { where(friends: { friendship_status: true }) }, through: :inverse_friends, source: :user
 
   has_many :groups, dependent: :destroy
   has_many :events
 
 
+
   def init_profile
+    
     self.build_profile.save(validate: false)
   end
 end
