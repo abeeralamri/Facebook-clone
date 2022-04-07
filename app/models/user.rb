@@ -8,8 +8,6 @@ class User < ApplicationRecord
   after_create :init_profile
 
 
-  has_many :post, dependent: :destroy, foreign_key: 'user_id'
-
 
   has_many :posts, dependent: :destroy, foreign_key: 'user_id'
   
@@ -27,6 +25,7 @@ class User < ApplicationRecord
 
   has_many :groups, dependent: :destroy
   has_many :events
+
 
 
 

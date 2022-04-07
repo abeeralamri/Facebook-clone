@@ -13,6 +13,7 @@
       </div>
   </div>
 
+
   <% if comment.replies.any? %>
     <% comment.replies.each do |reply| %> 
       <%= render partial: 'comments/reply', locals: { reply: reply } %>
@@ -22,5 +23,6 @@
     <%= link_to t("Show comment details"), comment ,class:"btn btn-primary" %>
     <br>
     <br></div>
+
 
 
