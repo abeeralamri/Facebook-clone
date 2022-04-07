@@ -1,0 +1,32 @@
+<div id="<%= dom_id group %>">
+
+  <%= form_with(model: group) do |form| %>
+    <div class="field">
+    <%if current_user.id == group.user_id%>
+      <%= form.file_field :cover %>
+    <%end%>  
+    </div>
+  <%end%>
+  <br>
+
+  <p>
+    <%= group.name %>
+  </p>
+  <%if group.join_status? && current_user.id == group.member_id || current_user.id == group.user_id%> 
+
+      <%= link_to "Posts", new_group_post_path(group_id: group.id) %>
+      <br>
+      <br>
+      <br>
+      
+        <% @group_posts.each do |group_post| %>
+        <%= User.find_by(id: group_post.user_id).first_name%>:
+          <%= group_post.content%>
+          <br>
+       <% end %>
+    <% end %>
+
+
+
+
+</div>

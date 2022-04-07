@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
     belongs_to :user, optional: true 
     has_many_attached :photo
+    belongs_to :group, optional: true
+
     has_many :likes, dependent: :destroy
     has_many :dislikes, dependent: :destroy
     has_many :wows, dependent: :destroy
@@ -11,5 +13,8 @@ class Post < ApplicationRecord
 
     has_noticed_notifications model_name: 'Notification'
     has_many :notifications, through: :user, dependent: :destroy
-  end
-  
+
+    #Validation
+    validates :text, presence: true
+
+end

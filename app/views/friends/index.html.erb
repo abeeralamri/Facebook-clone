@@ -3,6 +3,13 @@
   <%if user.id != current_user.id%>
     <%=link_to user.first_name, profile_path(user) %>
     <br>
+
+<ul>
+  <% @users.each do |user| %>
+    <%if user.id != current_user.id%>
+          <%=link_to user.first_name, @profiles[user.id] %>
+          <br>
+
     
     <% if pending_for_accept_my_request(user) %>
         <%= button_to t('Cancel request sent'), friend_path(find_friend_id(user)), method: :delete %> 
