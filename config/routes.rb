@@ -27,9 +27,14 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "friend_list", to: "friends#index"
 
+
+  post '/friend/create/:id', to: 'friends#create'
+  delete '/friend/:id', to: 'friends#destroy'
+
   post '/friendship/create/:id', to: 'friends#create'
   delete '/friend_list/:id', to: 'friendships#destroy'
 
   post '/group_post/create', to: 'group_posts#create'
+
   
  end

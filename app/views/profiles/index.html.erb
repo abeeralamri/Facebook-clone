@@ -6,9 +6,9 @@
   <% @profiles.each do |profile| %>
     <%= render profile %>
     <p>
-      <%= link_to "Show this profile", profile ,class:"btn btn-primary" %>
+      <%= link_to t("Show this profile"), profile ,class:"btn btn-primary" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New profile", new_profile_path ,class:"btn btn-primary" %>
+<%= link_to t("new"), new_profile_path ,class:"btn btn-primary" %>

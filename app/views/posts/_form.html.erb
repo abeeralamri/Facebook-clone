@@ -12,21 +12,21 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :post %>
+    <%= form.label t("title") %>
     <%= form.text_field :text, class: 'form-control' %>
   </div>
 
   <div>
-    <%= form.label "Public", style: "display: block" %>
+    <%= form.label t("Public"), style: "display: block" %>
     <%= form.check_box :display, as: :boolean, checked_value: false %>
   </div>
   
   <div>
-    <%= form.label "Private", style: "display: block" %>
+    <%= form.label t("Private"), style: "display: block" %>
     <%= form.check_box :display, as: :boolean, checked_value: true, unchecked_value: false %>
   </div>
 
  
 
-  <%= form.submit "Save Post", class: 'btn btn-primary' %>
+  <%= form.submit t("Save Post"), class: 'btn btn-primary' %>
 <% end %>

@@ -11,6 +11,9 @@ class Post < ApplicationRecord
     has_many :angrys, dependent: :destroy
     has_many :comments
 
+    has_noticed_notifications model_name: 'Notification'
+    has_many :notifications, through: :user, dependent: :destroy
+
     #Validation
     validates :text, presence: true
 

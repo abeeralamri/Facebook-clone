@@ -4,10 +4,10 @@
 
 <% if user_signed_in? && @profile.user_id == current_user.id%>
     
-    <%= link_to "Edit this profile", edit_profile_path(@profile) ,class:"btn btn-primary" %> 
+    <%= link_to t("Edit"), edit_profile_path(@profile) ,class:"btn btn-primary" %> 
     </div>
 <% end %>
 
-<a href="/" id="yes" class="btn btn-primary">Home page</a>
+<a href="/" id="yes" class="btn btn-primary"> <%=t'Back to Home'%></a>
 
         
