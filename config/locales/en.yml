@@ -1,33 +1,55 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  Welcome: "Welcome to facebook website"
+  Go to your profile: "Go to your profile"
+  notifications: notifications
+  Back to Home: Home
+  new: "new post"
+  Destroy: "Destroy"
+  Sign up: " Sign up "
+  Log in: Log in
+  Log out: Log out
+  Change your password: Change your password
+  Forgot your password: Forgot your password
+  remember me:  remember me
+  Email: "Email"
+  password: " password"
+  password conformation: password conformation
+  Copyright: Copyright
+  Send me reset password instructions: Send me reset password instructions
+  Show this profile: Show this profile
+  See your post go there: See your post go there
+  Posts: "Posts"
+  notifications: "notifications"
+  Post feedbacks: Post feedbacks
+  Like: Like
+  Dislike: Dislike
+  Wow: Wow
+  Sad: Sad 
+  Love: Love
+  Angry: Angry
+  back: back
+  Public: Public
+  Private: Private
+  Save Post: Save Post
+  title: title
+  Post Comments: Comments
+  Submit: Submit
+  New comment: New comment
+  Edit: Edit
+  Show comment details: Show comment details
+  Back to comments: Back to comments
+  Back to posts: Back to posts
+  Delete comment: Delete comment
+  avatar: avatar
+  bio: bio
+  job: job
+  Add Friend: Add Friend
+  Remove Friend: Remove Friend
+  Accept request: Accept request
+  Cancel request: Cancel request
+  Cancel request sent: Cancel request sent
+  Go to Friend Profile : Go to Friend Profile
+  first_name: first_name
+  last_name: last_name
+  characters minimum: characters minimum
+ 

@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<h3>comment : </h3>
+<h3><%= t 'Post Comments'%> </h3>
 <div class="card">
   <div class="card-body">
  <%= @comment.body %>
@@ -8,14 +8,14 @@
 <br>
 <br>
 <div>
-  <%= link_to "Edit comment", edit_comment_path(@comment) ,class:"btn btn-primary" %>  
+  <%= link_to t("Edit"), edit_comment_path(@comment) ,class:"btn btn-primary" %>  
   </div>
   <br>
-  <%= link_to "Back to comments", comments_path ,class:"btn btn-primary" %>
+  <%= link_to t("Back to comments"), comments_path ,class:"btn btn-primary" %>
   <br>
   <br>
-  <%= button_to "Delete comment", @comment, method: :delete ,class:"btn btn-primary" %>
+  <%= button_to t("Delete comment"), @comment, method: :delete ,class:"btn btn-primary" %>
 <br>
-  <%= link_to "Back to posts", posts_path ,class:"btn btn-primary" %>
+  <%= link_to t("Back to posts"), posts_path ,class:"btn btn-primary" %>
 </div>
 </div>
