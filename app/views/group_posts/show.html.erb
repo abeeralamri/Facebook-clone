@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @group_post %>
+
+<div>
+  <%= link_to "Edit this group post", edit_group_post_path(@group_post) %> |
+  <%= link_to "Back to group posts", group_posts_path %>
+
+  <%= button_to "Destroy this group post", @group_post, method: :delete %>
+</div>

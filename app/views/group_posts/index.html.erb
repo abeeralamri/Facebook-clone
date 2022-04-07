@@ -1,0 +1,13 @@
+
+<h1>Group posts</h1>
+
+<div id="group_posts">
+  <% @group_posts.each do |group_post| %>
+    <%= render group_post %>
+    <p>
+      <%= link_to "Show this group post", group_post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New group post", new_group_post_path %>
