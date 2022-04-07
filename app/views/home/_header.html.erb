@@ -9,7 +9,7 @@
   
 
     
-    <%= link_to t('home._header.home'), root_path, class:"navbar-brand" %>
+    <%= link_to t('Back to Home'), root_path, class:"navbar-brand" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -18,27 +18,37 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
         <li class="nav-item">
+
           <%= link_to t('home._header.notification'), root_path, class:"navbar-brand" %>
+
 
           <%end%>
         </li>
           <% if user_signed_in? %>
          <li class="nav-item">
-            <%= link_to t('home._header.Friend list'), friend_list_path, class:"navbar-brand" %>
-            <%end%>
-        </li>
-        <li class="nav-item">
+
+            <%= link_to t('Friend list'), friend_list_path, class:"navbar-brand" %>
+
+            <%= link_to t('home._header.Friend list'), friend_list_path, class:"navbar-brand" %> 
+            <li class="nav-item">
             <%= link_to t('home._header.Groups'), groups_url, class:"navbar-brand" %>
     
+         </li>
+          <li class="nav-item">
+            <%= link_to t('home._header.Event'), events_url, class:"navbar-brand" %>
+    
+          </li>
+            <%end%>
         </li>
+      
          <% if user_signed_in? %>
         <li class="nav-item">
-            <%= link_to t('home._header.profile'), current_user.profile ,class:"navbar-brand" %>
+            <%= link_to t('profile'), current_user.profile ,class:"navbar-brand" %>
         <%end%>
         </li>
          <% if user_signed_in? %>
         <li class="nav-item">
-        <%= link_to t('home._header.Posts'), posts_url ,class:"navbar-brand" %>
+        <%= link_to t('Posts'), posts_url ,class:"navbar-brand" %>
         <%end%>
         </li>
 
@@ -55,7 +65,15 @@
  <% if user_signed_in? %>
       <li class="nav-item">
     <%= button_to t('Log out'), destroy_user_session_path, method: :delete ,class:"btn btn-primary"%>
+        
     Signed in as <%= current_user.email %>.
+
+
+       <%= render 'layouts/notifications' %>
+
+    Signed in as <%= current_user.email %>.
+
+
      </li>
       <% else %>
     <li class="nav-item">

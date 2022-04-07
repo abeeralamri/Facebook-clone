@@ -88,17 +88,17 @@
 
 <div class="card my-1"> 
   <div class="card-body">
-    <p class="font-weight-bold">Post Comments : </p>
+    <p class="font-weight-bold"><%=t'Post Comments'%> </p>
     <%= form_with(model: [@post, @post.comments.build]) do |f| %>
       <div class="form-group">
-        <%= f.label 'New comment' %>
+        <%= f.label t('New comment') %>
         <%= f.text_area :body, class: 'form-control' %>
       </div>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <%= f.submit t('Submit'), class: 'btn btn-primary' %>
     <% end %>
   </div>
   <%= render @post.comments %>
 </div>
 <br>
 
-  <%= link_to 'Back To Timeline', posts_path, class: 'btn btn-light' %>
+  <%= link_to t('back'), posts_path, class: 'btn btn-light' %>

@@ -1,8 +1,8 @@
-<h1>Editing comment</h1>
+<h1><%= t'Edit' %> </h1>
 
 <%= render "form", comment: @comment %>
 <br>
 <div>
 <br>
-  <%= link_to "Back to comments", comments_path ,class:"btn btn-primary" %>
+  <%= link_to t("Back to comments"), comments_path ,class:"btn btn-primary" %>
 </div>

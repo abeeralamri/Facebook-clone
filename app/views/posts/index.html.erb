@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1><%= t 'Posts' %></h1>
 
-<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<%= link_to t('new'), new_post_path, class: 'btn btn-primary' %>
 <hr>
 <% @posts.each do |post| %>
   <div class="card">
@@ -20,15 +20,15 @@
     <%end%>
 
     </div>
-      <h6>Post feedbacks: </h6>
+      <h6> <%= t'Post feedbacks'%>: </h6>
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
   <div class="btn-group mr-2" role="group" aria-label="First group">
-  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-  <p><%= post.dislikes.count %> <%= (post.dislikes.count) == 1 ? 'Dislike' : 'Dislikes'%></p>
-  <p><%= post.wows.count %> <%= (post.wows.count) == 1 ? 'Wow' : 'Wows'%></p>
-  <p><%= post.sads.count %> <%= (post.sads.count) == 1 ? 'Sad' : 'Sdas'%></p>
-  <p><%= post.loveys.count %> <%= (post.loveys.count) == 1 ? 'Love' : 'Loves'%></p>
-  <p><%= post.angrys.count %> <%= (post.angrys.count) == 1 ? 'Angry' : 'Angrys'%></p>
+  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : ''%> <%= t'Like'%> </p>
+  <p><%= post.dislikes.count %> <%= (post.dislikes.count) == 1 ? 'Dislike' : '' %><%= t'Dislike'%> </p>
+  <p><%= post.wows.count %> <%= (post.wows.count) == 1 ? 'Wow' : ''%> <%= t'Wow'%> </p>
+  <p><%= post.sads.count %> <%= (post.sads.count) == 1 ? 'Sad' : ''%> <%= t'Sad'%> </p>
+  <p><%= post.loveys.count %> <%= (post.loveys.count) == 1 ? 'Love' : ''%><%= t'Love'%> </p>
+  <p><%= post.angrys.count %> <%= (post.angrys.count) == 1 ? 'Angry' : ''%><%= t'Angry'%> </p>
 
 
 
@@ -37,6 +37,6 @@
 
 
 
-      <%#= link_to 'Edit', edit_post_path(post), class: 'card-link' %>
+      <%=link_to t('Edit'), edit_post_path(post), class: 'card-link' %>
 </div>
 <% end %>
