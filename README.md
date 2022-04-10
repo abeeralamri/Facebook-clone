@@ -1,7 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Facebook project is a simulation project for the Facebook site, where the site was created from scratch using the ruby language. The project contains many features such as adding the post comment on the post, feedbacks such as liking, disliking, love, anger, sadness, and the user can add friends from the surrounding network and modify his/her profile
+
 
 Things you may want to cover:
 
@@ -17,8 +17,6 @@ Things you may want to cover:
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
 * Deployment instructions
 
-* ...
+
