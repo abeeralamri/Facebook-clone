@@ -19,6 +19,13 @@ Things you may want to cover:
 
 * Deployment instructions
 
+# Tools and languages:
+*	VS code
+* GitHub
+*	CSS
+*	Bootstrap - 5 
+*	Ruby on rails 
+
 
 # Authors
 <a href="https://github.com/fatenalsahli">Faten alsahli</a>
@@ -26,3 +33,5 @@ Things you may want to cover:
 <a href="https://github.com/Alhanouf0">Alhanouf Almansour</a>
 <br>
 <a href="https://github.com/abeeralamri">Abeer Alamri</a>
+
+# Screenshot
