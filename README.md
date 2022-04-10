@@ -20,3 +20,9 @@ Things you may want to cover:
 * Deployment instructions
 
 
+# Authors
+<a href="https://github.com/fatenalsahli">Faten alsahli</a>
+<br>
+<a href="https://github.com/Alhanouf0">Alhanouf Almansour</a>
+<br>
+<a href="https://github.com/abeeralamri">Abeer Alamri</a>
