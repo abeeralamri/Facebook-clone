@@ -1,0 +1,11 @@
+<h1 style="text-align:center"> <%= t 'Welcome'%> </h1>
+
+<% if user_signed_in? %>
+    <h5 style="text-align:center"> <%= t'Go to your profile'%> : <%= link_to  t("Show this profile"), current_user.profile %></h5>
+    <h5 style="text-align:center"><%=t'See your post go there'%>: <%= link_to t("Posts"), posts_url %></h5><br>
+   <h5 style="text-align:center"><%= button_to t('Log out'), destroy_user_session_path, method: :delete ,class:"btn btn-primary" %><br>
+   <br>
+<% else %>
+  <h5 style="text-align:center">  <%= link_to t('Sign up'), new_user_registration_path ,class:"btn btn-primary" %><h5>
+  <h5 style="text-align:center"><%= link_to t('Log in'), new_user_session_path  ,class:"btn btn-primary"%><h5>
+<% end %>

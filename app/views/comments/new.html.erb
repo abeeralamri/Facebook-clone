@@ -1,0 +1,7 @@
+<h1><%=t'New'%></h1>
+
+<%= render "form", comment: @comment %>
+<br>
+<div>
+  <%= link_to t("Back to comments"), comments_path ,class:"btn btn-primary" %>
+</div>

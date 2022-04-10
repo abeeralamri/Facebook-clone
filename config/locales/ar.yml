@@ -1,0 +1,59 @@
+ar: 
+  en: "انجليزية"
+  ar: "العربية"
+  Welcome: "مرحبا بك في موقع الموارد البشرية"
+  Back to Home: " الصفحة الرىيسية"
+  new: "اضافة منشور"
+  Destroy: "حذف"
+  Sign up: " تسجيل جديد"
+  Log in: "تسجيل دخول"
+  Log out: "تسجيل خروج"
+  back: العودة
+  Change your password: "تغيير الرقم السري"
+  Forgot your password: "نسيان الرقم السري"
+  remember me:  "تذكرني"
+  Email: "الايميل"
+  password: "الرقم السري"
+  password conformation: "تأكيد الرقم السري"
+  Copyright: "حقوق النشر ٢٠٢٢    "
+  Send me reset password instructions: "ارسال تعليمات استعادة الرقم السري الى الايميل"
+  Go to your profile: "اذهب الى الملف الشخصي"
+  Show this profile: "اعرض هذا الملف"
+  See your post go there: "الذهاب الى منشوراتي "
+  Posts: "منشورات"
+  notifications: "التنبيهات"
+  profile: "الملف الشخصي"
+  Friend list: الاصدقاء
+  Groups: 'المجموعات'
+  Events: "الأحداث"
+  Post feedbacks: "التفاعل"
+  Like: اعجاب
+  Dislike: عدم اعجاب
+  Wow: واو
+  Sad: حزين 
+  Love: احببت
+  Angry: غاضب
+  Public: عام
+  Private: خاص
+  Save Post: حفظ المنشور
+  title: المحتوى
+  Post Comments : "التعليقات"
+  Submit: ارسال
+  New comment: 'تعليقات جديده'
+  Edit: تعديل
+  Show comment details: عرض تفاصيل التعليق
+  Back to comments: العودة الى التعليقات
+  Back to posts: العودة الى المنشورات
+  Delete comment: حذف التعليق
+  avatar: صورة شخصية
+  bio: البايو
+  job: المهنة
+  Add Friend: اضافة صديق
+  Remove Friend: ازالة صديق
+  Accept request: قبول الطلب
+  Cancel request: رفض الطلب
+  Cancel request sent: الغاء الطلب المرسل
+  Go to Friend Profile : الذهاب الى ملف صديقي
+  first_name: الاسم الاول
+  last_name: الاسم الاخير
+  characters minimum: الحد الأدنى من الأحرف

@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t 'Posts' %></h1>
+
+<%= link_to t('new'), new_post_path, class: 'btn btn-primary' %>
+<hr>
+<% @posts.each do |post| %>
+  <div class="card">
+    <div class="card-body">
+
+    <!-- Private Post -->
+    <%if post.display? && post.user_id == current_user.id %>
+      <h5 class="card-title"><%= link_to post.text, post_path(post) %></h5>
+    <% end %>
+
+
+    <!-- Public Post -->
+    <%if post.display == false %>
+      <h5 class="card-title"><%= link_to post.text, post_path(post) %></h5>
+    <%end%>
+
+    </div>
+      <h6> <%= t'Post feedbacks'%>: </h6>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+  <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : ''%> <%= t'Like'%> </p>
+  <p><%= post.dislikes.count %> <%= (post.dislikes.count) == 1 ? 'Dislike' : '' %><%= t'Dislike'%> </p>
+  <p><%= post.wows.count %> <%= (post.wows.count) == 1 ? 'Wow' : ''%> <%= t'Wow'%> </p>
+  <p><%= post.sads.count %> <%= (post.sads.count) == 1 ? 'Sad' : ''%> <%= t'Sad'%> </p>
+  <p><%= post.loveys.count %> <%= (post.loveys.count) == 1 ? 'Love' : ''%><%= t'Love'%> </p>
+  <p><%= post.angrys.count %> <%= (post.angrys.count) == 1 ? 'Angry' : ''%><%= t'Angry'%> </p>
+
+
+
+  </div>
+</div>
+
+
+
+      <%=link_to t('Edit'), edit_post_path(post), class: 'card-link' %>
+</div>
+<% end %>
